@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" >
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/subcategoria/new">Nuevo</a>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+    </tr>
+    <tr th:each="subcategoria: ${subcategorias}">
+        <td th:text="${subcategoria.id}">
+        </td>
+        <td th:text="${subcategoria.nombre}">
+        </td>
+        <td th:text="${subcategoria.descripcion}">
+        </td>
+        <td>
+            <a th:href="@{/subcategoria/}+${subcategoria.id}">Ver</a>
+            <a th:href="@{/subcategoria/edit/}+${subcategoria.id}">Editar</a>
+            <a th:href="@{/subcategoria/delete/}+${subcategoria.id}">Borrar</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

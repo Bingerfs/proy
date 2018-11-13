@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>FormPost</title>
+</head>
+<body>
+<form action="/post" th:object="${post}" method="POST">
+    <b>Texto:</b><input type="text" th:field="*{texto}">
+    <br>
+    <input type="hidden" name="user" th:value="${currentUser.id}">
+    <br>
+    <b>Subcategoria</b>
+    <select th:field="*{subcategoria}">
+        <option th:each="subcategoria: ${subcategorias}" th:value="${subcategoria.id}" th:selected="true" th:text="${subcategoria.nombre}">
+        </option>
+    </select>
+    <br>
+    <input type="submit" value="Guardar"/>
+</form>
+</body>
+</html>
